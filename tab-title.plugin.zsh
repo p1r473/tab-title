@@ -15,9 +15,9 @@ update_window_title() {
 	    pane_content="$username@$hostname - $dir"
 	fi
 
-	print -Pn -- "\033k$truncated_title\033\\"
-	print -Pn -- "\033]2;$pane_content\033\\"
-	print -Pn -- "\033]0;$pane_content\033\\"
+	printf "\033k%s\033\\" "$truncated_title"
+	printf "\033]2;%s\033\\" "$pane_content"
+	printf "\033]0;%s\033\\" "$pane_content"
 	if [ -n "$TMUX" ]; then
 	    tmux rename-window "$truncated_title"
 	fi
