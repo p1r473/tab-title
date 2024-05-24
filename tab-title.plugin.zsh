@@ -23,9 +23,6 @@ update_window_title() {
     fi
 }
 
-# Set up hooks for changing directory and executing commands
-autoload -Uz add-zsh-hook
-
 # Function to update window title when changing directories
 chpwd_title_update() {
     local current_dir=${(%):-%~}
@@ -49,3 +46,5 @@ precmd_title_update() {
 add-zsh-hook chpwd chpwd_title_update
 add-zsh-hook preexec preexec_title_update
 add-zsh-hook precmd precmd_title_update
+# Set up hooks for changing directory and executing commands
+autoload -Uz add-zsh-hook
